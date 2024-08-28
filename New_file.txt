@@ -27,11 +27,14 @@ pipeline {
                 echo "Deploy the application to a testing environment specified by the environment variable"
             }
         }
-        stage('Approval') {
-            steps {
-                echo "Waiting for manual approval"
-                sleep 10
-            }
+        stage('Approval')
+        { 
+         steps{ 
+               echo 'Waitingfor manual approval...' 
+                script{ 
+                       sleeptime: 10, unit:'SECONDS' 
+                      } 
+               } 
         }
         stage('Deploy to Production') {
             steps {
